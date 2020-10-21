@@ -4,12 +4,20 @@
 
 <% if @stock %>
   <div class="card card-header search-block">
-    <strong>Symbol: </strong><%= @stock.ticker.upcase %>
-    <strong>Name: </strong><%= @stock.name %>
-    <strong>Last Price: </strong>$<%= @stock.last_price %>
-    <%= link_to "Add to portfolio", 
-      user_stocks_path(user: current_user, ticker: @stock.ticker),
-      method: :post,
-      class: "btn btn-info ml-2" %>
+    <strong class="mr-1">Symbol: </strong><%= @stock.ticker.upcase %>
+    <strong class="mr-1">Name: </strong><%= @stock.name %>
+    <strong class="mr-1">Last Price: </strong>$<%= @stock.last_price %>
+    <% if current_user.can_track_stock?(@stock.ticker) %>
+      <%= link_to "Add to portfolio", 
+        user_stocks_path(user: current_user, ticker: @stock.ticker),
+        method: :post,
+        class: "btn btn-info ml-2" %>
+    <% else %>
+      <% if current_user.stock_already_tracked?(@stock.ticker) %>
+        <span class="badge badge-success ml-2">Tracking</span>
+      <% else %>
+        <span class="badge badge-danger ml-2">Over Tracking Limit</span>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
