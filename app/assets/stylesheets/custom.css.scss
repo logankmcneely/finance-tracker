@@ -1,29 +1,36 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 // LAYOUT
-
 // |-> Alert Messages
 #alert-message-container {
   margin-top: 16px;
 }
 
-// MY PORTFOLIO
+// LOGIN
+// |-> Login Container
+#login-container {
+  margin-top: 50px;
+}
 
+// SIGN UP
+// |-> Signup Container
+#signup-container {
+  margin-top: 50px;
+}
+
+// MY PORTFOLIO
 // |-> View Container
 #my-portfolio-container {
   margin-top: 20px;
 }
-
 // |-> Search Area
 .search-area {
   margin-top: 50px;
 }
-
 // |-> Search Results
 .search-block {
   display: inline-block;
 }
-
 // |-> User's Tracked Stocks
 #users-tracked-stocks-container {
   margin-top: 50px;
