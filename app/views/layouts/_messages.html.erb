@@ -1,6 +1,8 @@
+
 <% if notice %>
   <%= render "layouts/message", alert_type: "alert-success", alert_message: notice %>
 <% end %>
 <% if alert %>
   <%= render "layouts/message", alert_type: "alert-danger", alert_message: alert %>
 <% end %>
+<% flash.clear %>

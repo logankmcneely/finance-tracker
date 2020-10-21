@@ -7,5 +7,9 @@
     <strong>Symbol: </strong><%= @stock.ticker.upcase %>
     <strong>Name: </strong><%= @stock.name %>
     <strong>Last Price: </strong>$<%= @stock.last_price %>
+    <%= link_to "Add to portfolio", 
+      user_stocks_path(user: current_user, ticker: @stock.ticker),
+      method: :post,
+      class: "btn btn-info ml-2" %>
   </div>
 <% end %>
