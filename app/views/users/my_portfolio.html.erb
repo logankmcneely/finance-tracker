@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="my-portfolio-container">
   <h1>My Portfolio</h1>
 
   <div class="search-area">
@@ -14,7 +14,17 @@
       </div>
     <% end %>
   </div>
+
   <div id="results-container">
     <%= render "users/result" %>
   </div>
+
+  <div id="users-tracked-stocks-container">
+    <% if !@tracked_stocks.empty? %>
+      <%= render "stocks_table" %>
+    <% else %>
+      <h5 class="font-weight-light font-italic text-center">You are currently not tracking any stocks. Search and add stocks to build your portfolio.</h5>
+    <% end %>
+  </div>
+
 </div>

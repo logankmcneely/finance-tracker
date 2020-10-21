@@ -9,6 +9,11 @@
 
 // MY PORTFOLIO
 
+// |-> View Container
+#my-portfolio-container {
+  margin-top: 20px;
+}
+
 // |-> Search Area
 .search-area {
   margin-top: 50px;
@@ -17,4 +22,9 @@
 // |-> Search Results
 .search-block {
   display: inline-block;
+}
+
+// |-> User's Tracked Stocks
+#users-tracked-stocks-container {
+  margin-top: 50px;
 }
