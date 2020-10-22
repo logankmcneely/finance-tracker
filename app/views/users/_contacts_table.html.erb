@@ -13,8 +13,12 @@
     <% @user_contacts.each do |contact| %>
       <tr>
         <th scope="row"><%= contact.full_name %></th>
-        <td><%= contact.email %></td>
-        <td>Tracked Stocks</td>
+        <td class="font-italic"><%= contact.email %></td>
+        <td>
+          <% contact.stocks.each do |stock| %>
+            <span class="badge badge-info"><%= stock.ticker %></span>
+          <%end %>
+        </td>
         <td><%= link_to connection_path(contact), method: :delete,
           data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } do%>
             <%= fa_icon "times", class: "text-danger" %>
