@@ -14,17 +14,18 @@
             <div id="user-dropdown-expanded">
               <li class="nav-item">
                 <%= link_to my_portfolio_path, class: "nav-link" do %>
-                  <i class="fa fa-chart-line mr-1"></i>My Portfolio
+                  <%= fa_icon "book", class: "mr-2 nav-expanded-icon" %>My Portfolio
                 <% end %>
               </li>
+              <div class="dropdown-divider"></div>
               <li class="nav-item">
                 <%= link_to edit_user_registration_path, class: "nav-link" do %>
-                  <i class="fa fa-edit mr-1 nav-expanded-icon"></i>Edit profile
+                  <%= fa_icon "edit", class: "mr-2 nav-expanded-icon" %>Edit profile
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-                  <i class="fa fa-sign-out mr-1 nav-expanded-icon"></i>Logout
+                  <%= fa_icon "sign-out", class: "mr-2 nav-expanded-icon" %>Logout
                 <% end %>
               </li>
             </div>
@@ -32,11 +33,11 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown user-dropdown-collapse">
               <%= link_to "#", { class: "nav-link dropdown-toggle mr-2", id:"navbarDropdown", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
-                 <i class="fa fa-user mr-1"></i><%= current_user.full_name %>
+                <%= fa_icon "user", class: "mr-1" %><%= current_user.full_name %>
               <% end %>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
-                  <i class="fa fa-edit mr-1"></i>Edit profile
+                  <%= fa_icon "edit", class: "mr-1" %>Edit profile
                 <% end %>
               </div>
             </li>
