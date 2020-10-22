@@ -17,12 +17,12 @@
                   <%= fa_icon "book", class: "mr-2 nav-expanded-icon" %>My Portfolio
                 <% end %>
               </li>
-              <div class="dropdown-divider"></div>
               <li class="nav-item <%= 'active' if request.path == edit_user_registration_path %>">
                 <%= link_to edit_user_registration_path, class: "nav-link" do %>
                   <%= fa_icon "edit", class: "mr-2 nav-expanded-icon" %>Edit profile
                 <% end %>
               </li>
+              <div class="dropdown-divider"></div>
               <li class="nav-item">
                 <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
                   <%= fa_icon "sign-out", class: "mr-2 nav-expanded-icon" %>Logout
