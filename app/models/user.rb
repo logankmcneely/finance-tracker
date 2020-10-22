@@ -31,4 +31,27 @@ class User < ApplicationRecord
     end
   end
 
+  def self.search(param)
+    param.strip!
+    results = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
+    return nil unless results
+    results
+  end
+
+  def self.first_name_matches(param)
+    matches("first_name", param)
+  end
+
+  def self.last_name_matches(param)
+    matches("last_name", param)
+  end
+
+  def self.email_matches(param)
+    matches("email", param)
+  end
+
+  def self.matches(field_name, param)
+    where("#{field_name} like ?", "%#{param}%")
+  end
+
 end
