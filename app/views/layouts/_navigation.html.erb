@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
   <div class="container">
     <%= link_to "Finance Tracker", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
               <%= link_to "My Portfolio", my_portfolio_path, class: "nav-link" %>
             </li>
             <li class="nav-item user-dropdown-collapse <%= 'active' if request.path == connections_path %>">
-              <%= link_to "Friends", connections_path, class: "nav-link" %>
+              <%= link_to "Connections", connections_path, class: "nav-link" %>
             </li>
             <div id="user-dropdown-expanded">
               <li class="nav-item <%= 'active' if request.path == my_portfolio_path %>">

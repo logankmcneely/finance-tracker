@@ -5,6 +5,9 @@
 #application-container {
   padding-top: 72px;
 }
+.page-container {
+  margin-top: 20px;
+}
 
 // |-> Alert Messages
 #alert-message-container {
@@ -13,12 +16,12 @@
 
 // NAVIGATION
 // |-> User dropdown menu
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .user-dropdown-collapse {
     display: none;
   }
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   #user-dropdown-expanded {
     display: none;
   }
@@ -35,10 +38,6 @@
 }
 
 // MY PORTFOLIO
-// |-> View Container
-#my-portfolio-container {
-  margin-top: 20px;
-}
 // |-> Search Area
 .search-area {
   margin-top: 50px;
@@ -47,7 +46,9 @@
 .search-block {
   display: inline-block;
 }
-// |-> User's Tracked Stocks
-#users-tracked-stocks-container {
+
+// TRACKING CONTAINER (used in My Portfolio and Connections)
+// |-> Container
+.tracking-container {
   margin: 50px 0;
 }

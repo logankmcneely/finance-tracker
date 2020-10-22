@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def connections
-    
+    @user_contacts = current_user.contacts
   end
   
 end

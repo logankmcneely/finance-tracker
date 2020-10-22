@@ -1,6 +1,6 @@
 <div class="container page-container">
 
-  <h1>My Portfolio</h1>
+  <h1>My Connections</h1>
 
   <div class="search-area">
     <h3>Search Stocks</h3>
@@ -21,10 +21,10 @@
   </div>
 
   <div class="tracking-container">
-    <% if !@tracked_stocks.empty? %>
-      <%= render "stocks_table" %>
+    <% if !@user_contacts.empty? %>
+      <%= render "contacts_table" %>
     <% else %>
-      <h5 class="font-weight-light font-italic text-center">You are currently not tracking any stocks. Search and add stocks to build your portfolio.</h5>
+      <h5 class="font-weight-light font-italic text-center">You currently have no connections. Search and add contacts to build your connections.</h5>
     <% end %>
   </div>
 
