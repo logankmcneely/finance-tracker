@@ -1,6 +1,7 @@
 class ConnectionsController < ApplicationController
 
   def create
+    byebug
   end
 
   def destroy

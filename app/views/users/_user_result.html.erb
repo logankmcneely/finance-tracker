@@ -2,12 +2,24 @@
   <%= render  "layouts/messages" %>
 </div>
 
-<% if @user %>
+<% if @results %>
   <div class="card card-header search-block">
-    <span class="mr-1"><strong>Name: </strong><%= @user %></span>
-    <span class="mr-1"><strong>Email: </strong><%= @user %></span>
-    <%= link_to "#" do %>
-      <%= fa_icon "user-plus 1x", class: "btn btn-success ml-2" %>
-    <% end %>
+    <table class="col-md-12">
+      <tbody>
+        <% @results.each do |contact| %>
+          <tr>
+            <td class="align-middle"><strong><%= contact.full_name %></strong><span class="font-italic ml-2">(<%= contact.email %>)</span></td>
+            <td class="align-middle">
+              <%= link_to "#" do %>
+                <%= fa_icon "eye", class: "btn-sm btn-primary ml-2" %>
+              <% end %>
+              <%= link_to connections_path(user: current_user, contact: contact), method: :post do %>
+                <%= fa_icon "user-plus", class: "btn-sm btn-success" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 <% end %>
