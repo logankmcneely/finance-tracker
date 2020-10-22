@@ -3,10 +3,10 @@
   <h1>My Connections</h1>
 
   <div class="search-area">
-    <h3>Search Contacts</h3>
+    <h3>Search Users</h3>
     <%= form_tag search_user_path, remote: true, method: :get do %>
       <div class="input-group">
-        <%= text_field_tag :user, params[:user], placeholder: "User", autofocus: true , class: 'form-control form-control-lg'%>
+        <%= text_field_tag :user, params[:user], placeholder: "Search user", autofocus: true , class: 'form-control form-control-lg'%>
         <div class="input-group-append">
           <%= button_tag type: :submit, class: 'btn btn-success' do %>
             <%= fa_icon 'search 2x' %>

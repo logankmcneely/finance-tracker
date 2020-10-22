@@ -9,8 +9,23 @@ class UsersController < ApplicationController
   end
 
   def search
-    respond_to do |format|
-      format.js { render partial: 'users/result' }
+    if params[:user].present?
+      @user = params[:user]
+      if @user
+        respond_to do |format|
+          format.js { render partial: 'users/user_result' }
+        end
+      else
+        respond_to do |format|
+          flash.now[:alert] = "No users found"
+          format.js { render partial: 'users/user_result' }
+        end
+      end
+    else
+      respond_to do |format|
+        flash.now[:alert] = "Please enter a user to search"
+        format.js { render partial: 'users/user_result' }
+      end
     end
   end
   

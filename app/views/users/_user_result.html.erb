@@ -1,1 +1,13 @@
-<h1>Hello</h1>
+<div class="search-block">
+  <%= render  "layouts/messages" %>
+</div>
+
+<% if @user %>
+  <div class="card card-header search-block">
+    <span class="mr-1"><strong>Name: </strong><%= @user %></span>
+    <span class="mr-1"><strong>Email: </strong><%= @user %></span>
+    <%= link_to "#" do %>
+      <%= fa_icon "user-plus 1x", class: "btn btn-success ml-2" %>
+    <% end %>
+  </div>
+<% end %>
