@@ -6,15 +6,26 @@
   margin-top: 16px;
 }
 
-// LOGIN
-// |-> Login Container
-#login-container {
-  margin-top: 50px;
+// NAVIGATION
+// |-> User dropdown menu
+@media (max-width: 575.98px) {
+  .user-dropdown-collapse {
+    display: none;
+  }
+}
+@media (min-width: 576px) {
+  #user-dropdown-expanded {
+    display: none;
+  }
+}
+.nav-expanded-icon {
+  width: 16px;
+  height: 16px;
 }
 
-// SIGN UP
-// |-> Signup Container
-#signup-container {
+// DEVISE USER PAGES (REGISTRATION, NEW, EDIT)
+// |-> Container
+.devise-user-container {
   margin-top: 50px;
 }
 

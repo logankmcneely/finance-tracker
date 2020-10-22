@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container">
     <%= link_to "Finance Tracker", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,35 +8,42 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <% if current_user %>
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item <%= 'active' if request.path == my_portfolio_path%>">
+            <li class="nav-item user-dropdown-collapse <%= 'active' if request.path == my_portfolio_path%>">
               <%= link_to "My Portfolio", my_portfolio_path, class: "nav-link" %>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
+            <div id="user-dropdown-expanded">
+              <li class="nav-item">
+                <%= link_to my_portfolio_path, class: "nav-link" do %>
+                  <i class="fa fa-chart-line mr-1"></i>My Portfolio
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to edit_user_registration_path, class: "nav-link" do %>
+                  <i class="fa fa-edit mr-1 nav-expanded-icon"></i>Edit profile
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+                  <i class="fa fa-sign-out mr-1 nav-expanded-icon"></i>Logout
+                <% end %>
+              </li>
+            </div>
           </ul>
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <%= link_to "#", class: "nav-link mr-2" do %>
+            <li class="nav-item dropdown user-dropdown-collapse">
+              <%= link_to "#", { class: "nav-link dropdown-toggle mr-2", id:"navbarDropdown", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
                  <i class="fa fa-user mr-1"></i><%= current_user.full_name %>
               <% end %>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                  <i class="fa fa-edit mr-1"></i>Edit profile
+                <% end %>
+              </div>
             </li>
             <li class="nav-item">
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger mr-2" %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger mr-2 user-dropdown-collapse" %>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         <% else %>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
