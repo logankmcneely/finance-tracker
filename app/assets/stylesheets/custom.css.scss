@@ -1,6 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 // LAYOUT
+// |-> Main Application Container
+#application-container {
+  padding-top: 72px;
+}
+
 // |-> Alert Messages
 #alert-message-container {
   margin-top: 16px;
