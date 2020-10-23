@@ -1,9 +1,13 @@
 class ConnectionsController < ApplicationController
 
   def create
-    Connection.create(user_id: current_user.id, contact_id: params[:contact])
-    contact = User.find(params[:contact])
-    flash[:notice] = "You have successfully started following #{contact.full_name}."
+    new_connection = Connection.new(user_id: current_user.id, contact_id: params[:contact])
+    if new_connection.save
+      contact = User.find(params[:contact])
+      flash[:notice] = "You have successfully started following #{contact.full_name}."
+    else
+      flash[:alert] = "Something went wrong."
+    end
     redirect_to my_connections_path
   end
 
