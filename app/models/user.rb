@@ -58,4 +58,9 @@ class User < ApplicationRecord
     users.reject { |user| user.id == self.id }
   end
 
+  def not_connected_with?(user_id)
+    return true unless self.contacts.where(id: user_id).exists?
+    false
+  end
+
 end

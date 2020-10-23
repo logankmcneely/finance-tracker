@@ -10,11 +10,19 @@
           <tr>
             <td class="align-middle"><strong><%= contact.full_name %></strong><span class="font-italic ml-2">(<%= contact.email %>)</span></td>
             <td class="align-middle">
-              <%= link_to "#" do %>
-                <%= fa_icon "eye", class: "btn-sm btn-primary ml-2" %>
+              <%= link_to "#", id:"view-user-icon" do %>
+                <%= fa_icon "eye", class: "btn-sm btn-primary ml-2 user-search-icon" %>
               <% end %>
-              <%= link_to connections_path(user: current_user, contact: contact), method: :post do %>
-                <%= fa_icon "user-plus", class: "btn-sm btn-success" %>
+              <% if current_user.not_connected_with?(contact.id) %>
+                <%= link_to connections_path(user: current_user, contact: contact), method: :post do %>                  
+                  <%= fa_icon "user-plus", class: "btn-sm btn-success ml-1 user-search-icon"  %>
+                <% end %>
+              <% else %>
+                <%= link_to connection_path(contact), method: :delete,
+                  data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } do%>                  
+                  <%= fa_icon "times", class: "btn-sm btn-danger ml-1 user-search-icon" %>
+                <% end %>
+                
               <% end %>
             </td>
           </tr>
