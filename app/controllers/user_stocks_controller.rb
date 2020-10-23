@@ -8,7 +8,7 @@ class UserStocksController < ApplicationController
     end
     @user_stock = UserStock.create(user: current_user, stock: stock)
     flash[:notice] = "#{stock.name} (#{stock.ticker}) has been successfully added to your portfolio."
-    redirect_to my_portfolio_path
+    redirect_to request.referrer
   end
 
   def destroy

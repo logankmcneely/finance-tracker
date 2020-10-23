@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @user_contacts = current_user.contacts
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def search
     if params[:user].present?
       @results = User.search(params[:user])

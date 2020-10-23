@@ -10,7 +10,7 @@
           <tr>
             <td class="align-middle"><strong><%= contact.full_name %></strong><span class="font-italic ml-2">(<%= contact.email %>)</span></td>
             <td class="align-middle">
-              <%= link_to "#", id:"view-user-icon" do %>
+              <%= link_to contact, class:"no-text-decoration" do %>
                 <%= fa_icon "eye", class: "btn-sm btn-primary ml-2 user-search-icon" %>
               <% end %>
               <% if current_user.not_connected_with?(contact.id) %>

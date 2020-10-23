@@ -19,9 +19,13 @@
             <span class="badge badge-info"><%= stock.ticker %></span>
           <%end %>
         </td>
-        <td class="align-middle"><%= link_to connection_path(contact), method: :delete,
-          data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } do%>
-            <%= fa_icon "times", class: "text-danger" %>
+        <td class="align-middle justify-content-center">
+          <%= link_to contact, class:"no-text-decoration" do %>
+            <%= fa_icon "eye", class: "text-primary action-icon" %>
+          <% end %>
+          <%= link_to connection_path(contact), method: :delete,
+            data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } do%>
+            <%= fa_icon "times", class: "text-danger action-icon" %>
           <% end %>
         </td>
       </tr>

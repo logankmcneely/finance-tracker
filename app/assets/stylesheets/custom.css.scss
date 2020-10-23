@@ -53,12 +53,17 @@
   height: 30px !important;
   width: 30px !important;
 }
-#view-user-icon {
-  text-decoration: none;
-}
 
 // TRACKING CONTAINER (used in My Portfolio and Connections)
 // |-> Container
 .tracking-container {
   margin: 50px 0;
+}
+.action-icon {
+  font-size: 1.5em;
+}
+
+// SHARED UTILITES
+.no-text-decoration {
+  text-decoration: none !important;
 }

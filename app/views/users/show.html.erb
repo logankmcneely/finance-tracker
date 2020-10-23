@@ -1,0 +1,13 @@
+<div class="container page-container">
+
+  <h1><%= @user.full_name %>'s Portfolio</h1>
+
+  <div class="tracking-container">
+    <% if !@user.stocks.empty? %>
+      <%= render "stocks_table", stocks: @user.stocks, my_portfolio: false %>
+    <% else %>
+      <h5 class="font-weight-light font-italic text-center"><%= @user.full_name %> is currently not tracking any stocks.</h5>
+    <% end %>
+  </div>
+
+</div>
