@@ -14,7 +14,7 @@
                 <%= fa_icon "eye", class: "btn-sm btn-primary ml-2 user-search-icon" %>
               <% end %>
               <% if current_user.not_connected_with?(contact.id) %>
-                <%= link_to connections_path(user: current_user, contact: contact), method: :post do %>                  
+                <%= link_to connections_path(contact: contact), method: :post do %>                  
                   <%= fa_icon "user-plus", class: "btn-sm btn-success ml-1 user-search-icon"  %>
                 <% end %>
               <% else %>
