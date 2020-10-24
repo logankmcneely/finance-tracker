@@ -21,8 +21,8 @@
   </div>
 
   <div class="tracking-container">
-    <% if !@tracked_stocks.empty? %>
-      <%= render "stocks_table", stocks:@tracked_stocks %>
+    <% if !current_user.stocks.empty? %>
+      <%= render "stocks_table", user: current_user %>
     <% else %>
       <h5 class="font-weight-light font-italic text-center">You are currently not tracking any stocks. Search and add stocks to build your portfolio.</h5>
     <% end %>
