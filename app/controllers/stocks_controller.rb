@@ -4,7 +4,6 @@ class StocksController < ApplicationController
     stock = Stock.new_lookup(params[:id])
     if stock
       @quote = stock.get_quote
-      @chart = stock.get_chart
     else
       flash[:alert] = "Invalid stock"
       redirect_to my_portfolio_path
@@ -13,7 +12,7 @@ class StocksController < ApplicationController
 
   def search
     if params[:stock].present?
-      @stock = Stock.new_lookup(params[:stock])
+      @stock = Stock.new_lookup(params[:stock]).get_quote
       if @stock
         respond_to do |format|
           format.js { render partial: 'users/stock_result' }
