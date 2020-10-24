@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'my_connections', to: 'users#my_connections'
   get 'search_user', to: 'users#search'
   get 'refresh_tracked_stocks', to: 'stocks#refresh_tracked_stocks'
+  resources :stocks, only: [:show]
   resources :users, only: [:show], :constraints => { :id => /[0-9|]+/ }
   resources :user_stocks, only: [:create, :destroy]
   resources :connections, only: [:create, :destroy]

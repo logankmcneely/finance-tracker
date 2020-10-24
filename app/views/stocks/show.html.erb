@@ -1,0 +1,13 @@
+<div class="container page-container">
+
+  <h1><%= @quote.company_name%> <small>(<%= @quote.symbol %>)</small></h1>
+  <h2>
+    <%= @quote.latest_price %>
+    <small>
+      <%= render  "shared/format_stock_delta", change: @quote.change %>
+      <%= render  "shared/format_stock_delta_percent", change: @quote.change, percent: @quote.change_percent_s %>
+    </small>
+    </h3>
+    <p>As of <%= @quote.latest_source.downcase %> on <%= @quote.latest_time %></p>
+    <%= @chart %>
+</div>
