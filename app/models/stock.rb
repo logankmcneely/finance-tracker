@@ -13,7 +13,6 @@ class Stock < ApplicationRecord
     begin
       new(
         ticker: ticker_symbol,
-        name: client.company(ticker_symbol).company_name
       )
     rescue => exception
       return nil
@@ -24,19 +23,13 @@ class Stock < ApplicationRecord
     where(ticker: ticker_symbol).first
   end
 
-  def last_price
-    client = get_client
-    client.price(self.ticker)
-  end
-
-  private
-
-  def get_client
-    IEX::Api::Client.new(
+  def get_quote
+    client = IEX::Api::Client.new(
       publishable_token: Rails.application.credentials.iex_client[:sandbox_tokens][:publishable_token],
       secret_token: Rails.application.credentials.iex_client[:sandbox_tokens][:secret_token],
       endpoint: 'https://sandbox.iexapis.com/v1'
     )
+    client.quote(self.ticker)
   end
   
 end

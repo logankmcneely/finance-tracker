@@ -1,5 +1,5 @@
 <h3>Tracked Stocks
-  <% if my_portfolio %>
+  <% if request.path == my_portfolio_path %>
     <small>(<%= stocks.count %>/10)</small>
   <% end %>
 </h3>
@@ -10,7 +10,7 @@
       <th scope="col">Ticker</th>
       <th scope="col">Company</th>
       <th scope="col", class="text-right">
-        <%= link_to "#", class: "no-text-decoration" do%>
+        <%= link_to '', class: "no-text-decoration" do%>
           <%= fa_icon "history", id: "stocks-table-refresh-icon"%>
         <% end %>
         Last Price
@@ -20,14 +20,15 @@
   </thead>
   <tbody>
     <% stocks.each do |stock| %>
+    <% quote = stock.get_quote %>
       <tr>
         <th scope="row" class="align-middle"><%= stock.ticker %></th>
-        <td class="align-middle"><%= stock.name %></td>
-        <td class="align-middle text-right"><%= number_to_currency(stock.last_price) %></td>
+        <td class="align-middle"><%= quote.company_name %></td>
+        <td class="align-middle text-right"><%= number_to_currency(quote.latest_price) %></td>
         <td class="align-middle">
-          <% if my_portfolio %>
+          <% if request.path == my_portfolio_path %>
             <%= link_to user_stock_path(stock), method: :delete,
-              data: { confirm: "Are you sure you would like to stop tracking #{stock.ticker} (#{stock.name})?" } do%>
+              data: { confirm: "Are you sure you would like to stop tracking #{stock.ticker} (#{quote.company_name})?" } do%>
               <%= fa_icon "times", class: "text-danger" %>
             <% end %>
           <% else %>
