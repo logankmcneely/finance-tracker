@@ -1,0 +1,1 @@
+Match user search results to the template of stock search results (view and follow buttons)
