@@ -3,7 +3,7 @@
     <div class="col-10">
       <h3>Tracked Stocks </h3>
     </div>
-    <div class="col-2 text-center">
+    <div class="col-2 text-right">
       <%= link_to refresh_tracked_stocks_path(user_id: user.id), class: "no-text-decoration", remote: true, method: :get do%>
         <h3><%= fa_icon "history", id: "stocks-table-refresh-icon"%></h3>
       <% end %>
