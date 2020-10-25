@@ -11,18 +11,18 @@
   </h2>
   <p>As of <%= @quote.latest_source %> on <%= @quote.latest_time %></p>
 
-  <div class="row">
+  <div class="row mt-5">
 
     <div class="col-md-8 col-lg-4">
       <table class="table">
         <tbody>
           <tr>
             <td class="no-border-top">Close</td>
-            <td class="no-border-top text-right font-weight-bold"><%= @quote.close %></td>
+            <td class="no-border-top text-right font-weight-bold"><%= number_with_precision(@quote.close, precision: 2) %></td>
           </tr>
           <tr>
             <td>Open</td>
-            <td class="text-right font-weight-bold"><%= @quote.open %></td>
+            <td class="text-right font-weight-bold"><%= number_with_precision(@quote.open, percision: 2) %></td>
           </tr>
           <tr>
             <td>Day's Range</td>
@@ -65,7 +65,9 @@
       <div class="mb-4 mt-3">
         <div class="row">
           <div class="col">
-            <h5 class="mb-0"><%= article.headline %></h5>
+            <%= link_to  "/", id:"news-link" do %>
+              <h5 class="mb-0"><%= article.headline %></h5>
+            <% end %>
           </div>
         </div>
         <div class="row mb-2">
