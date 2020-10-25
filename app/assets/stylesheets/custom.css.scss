@@ -5,6 +5,7 @@
 #application-container {
   padding-top: 72px;
 }
+
 .page-container {
   margin-top: 20px;
 }
@@ -20,11 +21,13 @@
     display: none;
   }
 }
+
 @media (min-width: 768px) {
   #user-dropdown-expanded {
     display: none;
   }
 }
+
 .nav-expanded-icon {
   width: 16px;
   height: 16px;
@@ -39,6 +42,7 @@
 .search-area {
   margin-top: 50px;
 }
+
 .search-block {
   display: inline-block;
 }
@@ -53,9 +57,11 @@
 .tracking-container {
   margin: 50px 0;
 }
+
 .action-icon {
   font-size: 1.5em;
 }
+
 #stocks-table-refresh-icon {
   transform: scale(-1, 1);
 }
@@ -64,10 +70,21 @@
 .no-border-top {
   border-top: 0 !important;
 }
+
 #news-header {
   border-bottom: 1px solid;
   border-color: #dee2e6;
   height: 48px;
+}
+
+#show-stocks-header {
+  display: inline-block;
+}
+
+@media (max-width: 991.98px) {
+  #news-container {
+    margin-top: 30px;
+  }
 }
 
 // SHARED UTILITES

@@ -1,6 +1,7 @@
 <div class="container page-container">
 
-  <h1><%= @quote.company_name%> <small>(<%= @quote.symbol %>)</small></h1>
+  <h1><%= @quote.company_name%><small> (<%= @quote.symbol %>)</small></h1>
+
   <h2>
     <%= @quote.latest_price %>
     <small>
@@ -12,7 +13,7 @@
 
   <div class="row">
 
-    <div class="col-4">
+    <div class="col-md-8 col-lg-4">
       <table class="table">
         <tbody>
           <tr>
@@ -25,23 +26,23 @@
           </tr>
           <tr>
             <td>Day's Range</td>
-            <td class="text-right font-weight-bold"><%= @quote.low %> x <%= @quote.high %></td>
+            <td class="text-right font-weight-bold"><%= @quote.low %> - <%= @quote.high %></td>
           </tr>
           <tr>
             <td>52 Week Range</td>
-            <td class="text-right font-weight-bold"><%= @quote.week_52_low %> x <%= @quote.week_52_high %></td>
+            <td class="text-right font-weight-bold"><%= @quote.week_52_low %> - <%= @quote.week_52_high %></td>
           </tr>
           <tr>
             <td>Volume</td>
-            <td class="text-right font-weight-bold"><%= @quote.latest_volume %></td>
+            <td class="text-right font-weight-bold"><%= number_with_delimiter(@quote.latest_volume) %></td>
           </tr>
           <tr>
             <td>Avg. Volume</td>
-            <td class="text-right font-weight-bold"><%= @quote.avg_total_volume %></td>
+            <td class="text-right font-weight-bold"><%= number_with_delimiter(@quote.avg_total_volume) %></td>
           </tr>
           <tr>
             <td>Market Cap</td>
-            <td class="text-right font-weight-bold"><%= @quote.market_cap %></td>
+            <td class="text-right font-weight-bold"><%= number_to_human(@quote.market_cap, precision: 4) %></td>
           </tr>
           <tr>
             <td>PE Ratio</td>
@@ -51,9 +52,9 @@
       </table>
     </div>
 
-    <div class="col-1"></div>
+    <div class="col-lg-1"></div>
 
-    <div class="col-7">
+    <div class="col-lg-7" id="news-container">
       <div class="row">
         <div class="col">
           <h2 id="news-header">News</h2>
@@ -61,13 +62,13 @@
       </div>
 
       <% @news.each do |article| %>
-      <div class="mb-4">
+      <div class="mb-4 mt-3">
         <div class="row">
           <div class="col">
             <h5 class="mb-0"><%= article.headline %></h5>
           </div>
         </div>
-        <div class="row">
+        <div class="row mb-2">
           <div class="col text-right font-italic">
             <small><%= article.datetime.strftime("%b %-d, %Y %l:%M %P")%></small>
           </div>
