@@ -43,8 +43,9 @@
   margin-top: 50px;
 }
 
-.search-block {
-  display: inline-block;
+.stock-search-buttons {
+  width: 70px;
+  height: 50px;
 }
 
 // MY CONNECTIONS
@@ -80,8 +81,6 @@
 #show-stocks-header {
   display: inline-block;
 }
-
-
 
 @media (max-width: 991.98px) {
   #news-container {

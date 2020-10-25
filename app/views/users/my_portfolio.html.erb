@@ -2,13 +2,13 @@
 
   <h1>My Portfolio</h1>
 
-  <div class="search-area">
+  <div class="search-area shadow-sm bg-white rounded">
     <h3>Search Stocks</h3>
     <%= form_tag search_stock_path, remote: true, method: :get do %>
       <div class="input-group">
-        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true , class: 'form-control form-control-lg'%>
+        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", class: 'form-control form-control-lg'%>
         <div class="input-group-append">
-          <%= button_tag type: :submit, class: 'btn btn-success' do %>
+          <%= button_tag type: :submit, class: 'btn btn-primary' do %>
             <%= fa_icon 'search 2x' %>
           <% end %>
         </div>

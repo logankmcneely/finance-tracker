@@ -1,28 +1,39 @@
-<div class="search-block">
-  <%= render  "layouts/messages" %>
-</div>
+<%= render  "layouts/messages" %>
 
 <% if @quote %>
-  <div class="card card-header search-block">
-    <strong>Symbol: </strong><%= @quote.symbol %>
-    <strong class="ml-2">Name: </strong><%= @quote.company_name %>
-    <strong class="ml-2">Last Price: </strong>$<%= @quote.latest_price %>
-    <%= link_to stock_path(@quote.symbol), class: "no-text-decoration" do %>
-      <span class="badge badge-info">View</span>
-    <% end %>
-    <% if current_user.can_track_stock?(@quote.symbol) %>
-      <%= link_to user_stocks_path(user: current_user, ticker: @quote.symbol), class: "no-text-decoration", method: :post do %>
-        <span class="badge badge-success">Track Stock</span>
-      <% end %>
-    <% else %>
-      <% if current_user.stock_already_tracked?(@quote.symbol) %>
-        <%= link_to user_stock_path(@stock_id), method: :delete,
-          data: { confirm: "Are you sure you would like to stop tracking #{@quote.symbol}?" } do %>
-            <span class="badge badge-danger">Stop Tracking</span>
-          <% end %>
-      <% else %>
-        <span class="badge badge-danger">Over Tracking Limit</span>
-      <% end %>
-    <% end %>
+  <div class="card shadow-sm bg-white rounded mt-2">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-6">
+            <div>
+              <span class="mr-2">
+                <%= @quote.company_name %> <small class="mr-3">(<%= @quote.symbol %>)</small>
+              </span>
+            </div>
+            <div>
+              <span class="mr-2">
+                <strong><%= number_with_precision(@quote.latest_price, precision: 2) %></strong>
+                <%= render "shared/format_stock_delta", change: @quote.change %>
+                <%= render  "shared/format_stock_delta_percent", change: @quote.change, percent: @quote.change_percent_s %>
+              </span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col d-flex justify-content-end">
+                <%= link_to "View", stock_path(@quote.symbol), class:"btn btn-sm btn-info stock-search-buttons mr-2" %>
+                <% if current_user.can_track_stock?(@quote.symbol) %>
+                  <%= link_to "Track", user_stocks_path(user: current_user, ticker: @quote.symbol), method: :post, class:"btn btn-sm btn-success stock-search-buttons" %>
+                <% elsif current_user.stock_already_tracked?(@quote.symbol) %>
+                  <%= link_to "Untrack", user_stock_path(@stock_id), method: :delete, class: "btn btn-sm btn-danger stock-search-buttons",
+                    data: { confirm: "Are you sure you want to stop tracking #{@quote.symbol}?" } %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 <% end %>
