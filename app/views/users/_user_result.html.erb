@@ -1,33 +1,29 @@
-<div class="search-block">
+<div>
   <%= render  "layouts/messages" %>
 </div>
 
 <% if @results && @results.count > 0 %>
-  <div class="card">
-    <table class="table table-borderless col-md-12">
-      <tbody>
-        <% @results.each do |contact| %>
-          <tr>
-            <td class="align-middle"><strong><%= contact.full_name %></strong></td>
-            <td class="align-middle"><%= contact.email %></td>
-            <td class="align-middle">
-              <%= link_to contact, class:"no-text-decoration" do %>
-                <span class="badge badge-info">View</span>
+  <div class="card shadow-sm bg-white rounded mt-2">
+    <ul class="list-group list-group-flush">
+      <% @results.each do |contact| %>
+        <li class="list-group-item">
+          <div class="row align-middle">
+            <div class="col-8 align-middle">
+              <%= link_to contact, class:"link-style" do %>
+                <%= contact.full_name %><small class="ml-3"><%= contact.email %></small>
               <% end %>
+            </div>
+            <div class="col-4 align-middle text-right">
               <% if current_user.not_connected_with?(contact.id) %>
-                <%= link_to connections_path(contact: contact), method: :post do %>                  
-                  <span class="badge badge-success">Follow User</span>
-                <% end %>
+                <%= link_to "Follow", connections_path(contact: contact), method: :post, class:"btn btn-sm btn-success" %>
               <% else %>
-                <%= link_to connection_path(contact), method: :delete,
-                  data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } do%>                  
-                    <span class="badge badge-danger">Stop Following</span>
-                <% end %>  
+                <%= link_to "Unfollow", connection_path(contact), method: :delete, class: "btn btn-sm btn-danger",
+                  data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } %>
               <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
