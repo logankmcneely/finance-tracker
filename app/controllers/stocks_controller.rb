@@ -13,8 +13,10 @@ class StocksController < ApplicationController
 
   def search
     if params[:stock].present?
-      @stock = Stock.new_lookup(params[:stock]).get_quote
-      if @stock
+      db_lookup = Stock.where(ticker: params[:stock]).first
+      if db_lookup
+        @quote = db_lookup.get_quote
+        @stock_id = db_lookup.id
         respond_to do |format|
           format.js { render partial: 'users/stock_result' }
         end

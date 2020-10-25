@@ -2,21 +2,27 @@
   <%= render  "layouts/messages" %>
 </div>
 
-<% if @stock %>
+<% if @quote %>
   <div class="card card-header search-block">
-    <strong class="mr-1">Symbol: </strong><%= @stock.symbol %>
-    <strong class="mr-1">Name: </strong><%= @stock.company_name %>
-    <strong class="mr-1">Last Price: </strong>$<%= @stock.latest_price %>
-    <% if current_user.can_track_stock?(@stock.symbol) %>
-      <%= link_to "Add to portfolio", 
-        user_stocks_path(user: current_user, ticker: @stock.symbol),
-        method: :post,
-        class: "btn btn-info ml-2" %>
+    <strong>Symbol: </strong><%= @quote.symbol %>
+    <strong class="ml-2">Name: </strong><%= @quote.company_name %>
+    <strong class="ml-2">Last Price: </strong>$<%= @quote.latest_price %>
+    <%= link_to stock_path(@quote.symbol), class: "no-text-decoration" do %>
+      <span class="badge badge-info">View</span>
+    <% end %>
+    <% if current_user.can_track_stock?(@quote.symbol) %>
+      <%= link_to user_stocks_path(user: current_user, ticker: @quote.symbol), class: "no-text-decoration", method: :post do %>
+        <span class="badge badge-success">Track Stock</span>
+      <% end %>
     <% else %>
-      <% if current_user.stock_already_tracked?(@stock.symbol) %>
-        <span class="badge badge-success ml-2">Tracking</span>
+      <% if current_user.stock_already_tracked?(@quote.symbol) %>
+        <span class="badge badge-success">Tracking</span>
+        <%= link_to user_stock_path(@stock_id), method: :delete,
+          data: { confirm: "Are you sure you would like to stop tracking #{@quote.symbol}?" } do %>
+            <span class="badge badge-danger">Stop Tracking</span>
+          <% end %>
       <% else %>
-        <span class="badge badge-danger ml-2">Over Tracking Limit</span>
+        <span class="badge badge-danger">Over Tracking Limit</span>
       <% end %>
     <% end %>
   </div>
