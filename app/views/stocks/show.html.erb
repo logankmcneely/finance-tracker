@@ -3,7 +3,7 @@
   <h1><%= @quote.company_name%><small> (<%= @quote.symbol %>)</small></h1>
 
   <h2>
-    <%= @quote.latest_price %>
+    <%= number_with_precision(@quote.latest_price, precision: 2) %>
     <small>
       <%= render  "shared/format_stock_delta", change: @quote.change %>
       <%= render  "shared/format_stock_delta_percent", change: @quote.change, percent: @quote.change_percent_s %>
@@ -22,7 +22,7 @@
           </tr>
           <tr>
             <td>Open</td>
-            <td class="text-right font-weight-bold"><%= number_with_precision(@quote.open, percision: 2) %></td>
+            <td class="text-right font-weight-bold"><%= number_with_precision(@quote.open, precision: 2) %></td>
           </tr>
           <tr>
             <td>Day's Range</td>

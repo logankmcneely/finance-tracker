@@ -12,17 +12,16 @@
   <tbody>
     <% @user_contacts.each do |contact| %>
       <tr>
-        <th scope="row", class="align-middle"><%= contact.full_name %></th>
+        <th scope="row", class="align-middle"><%= link_to contact.full_name, contact %></th>
         <td class="font-italic align-middle"><%= contact.email %></td>
         <td>
           <% contact.stocks.each do |stock| %>
-            <span class="badge badge-info"><%= stock.ticker %></span>
+            <%= link_to stock_path(stock.ticker), class:"no-text-decoration" do %>
+              <span class="badge badge-info"><%= stock.ticker %></span>
+            <% end %>
           <%end %>
         </td>
         <td class="align-middle justify-content-center">
-          <%= link_to contact, class:"no-text-decoration" do %>
-            <%= fa_icon "eye", class: "text-primary action-icon" %>
-          <% end %>
           <%= link_to connection_path(contact), method: :delete,
             data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } do%>
             <%= fa_icon "times", class: "text-danger action-icon" %>

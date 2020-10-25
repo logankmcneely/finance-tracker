@@ -22,7 +22,7 @@
       <% user.stocks.each do |stock| %>
       <% quote = stock.get_quote %>
         <tr>
-          <th scope="row" class="align-middle"><%= stock.ticker %></th>
+          <th scope="row" class="align-middle"><%= link_to stock.ticker, stock_path(quote.symbol) %></th>
           <td class="align-middle"><%= quote.company_name %></td>
           <td class="align-middle text-right"><%= number_to_currency(quote.latest_price) %></td>
           <td class="align-middle text-right"><%= render  "shared/format_stock_delta", change: quote.change %></td>

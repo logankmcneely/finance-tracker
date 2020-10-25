@@ -2,27 +2,27 @@
   <%= render  "layouts/messages" %>
 </div>
 
-<% if @results %>
-  <div class="card card-header search-block">
-    <table class="col-md-12">
+<% if @results && @results.count > 0 %>
+  <div class="card">
+    <table class="table table-borderless col-md-12">
       <tbody>
         <% @results.each do |contact| %>
           <tr>
-            <td class="align-middle"><strong><%= contact.full_name %></strong><span class="font-italic ml-2">(<%= contact.email %>)</span></td>
+            <td class="align-middle"><strong><%= contact.full_name %></strong></td>
+            <td class="align-middle"><%= contact.email %></td>
             <td class="align-middle">
               <%= link_to contact, class:"no-text-decoration" do %>
-                <%= fa_icon "eye", class: "btn-sm btn-primary ml-2 user-search-icon" %>
+                <span class="badge badge-info">View</span>
               <% end %>
               <% if current_user.not_connected_with?(contact.id) %>
                 <%= link_to connections_path(contact: contact), method: :post do %>                  
-                  <%= fa_icon "user-plus", class: "btn-sm btn-success ml-1 user-search-icon"  %>
+                  <span class="badge badge-success">Follow User</span>
                 <% end %>
               <% else %>
                 <%= link_to connection_path(contact), method: :delete,
                   data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } do%>                  
-                  <%= fa_icon "times", class: "btn-sm btn-danger ml-1 user-search-icon" %>
-                <% end %>
-                
+                    <span class="badge badge-danger">Stop Following</span>
+                <% end %>  
               <% end %>
             </td>
           </tr>

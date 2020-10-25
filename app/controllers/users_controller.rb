@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if params[:user].present?
       @results = User.search(params[:user])
       @results = current_user.except_current_user(@results)
-      if @results
+      if !@results.empty?
         respond_to do |format|
           format.js { render partial: 'users/user_result' }
         end
