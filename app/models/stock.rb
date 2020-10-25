@@ -31,5 +31,14 @@ class Stock < ApplicationRecord
     )
     client.quote(self.ticker)
   end
+
+  def get_news
+    client = IEX::Api::Client.new(
+      publishable_token: Rails.application.credentials.iex_client[:sandbox_tokens][:publishable_token],
+      secret_token: Rails.application.credentials.iex_client[:sandbox_tokens][:secret_token],
+      endpoint: 'https://sandbox.iexapis.com/v1'
+    )
+    client.news(self.ticker)
+  end
   
 end

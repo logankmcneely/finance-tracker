@@ -7,7 +7,80 @@
       <%= render  "shared/format_stock_delta", change: @quote.change %>
       <%= render  "shared/format_stock_delta_percent", change: @quote.change, percent: @quote.change_percent_s %>
     </small>
-    </h3>
-    <p>As of <%= @quote.latest_source.downcase %> on <%= @quote.latest_time %></p>
+  </h2>
+  <p>As of <%= @quote.latest_source %> on <%= @quote.latest_time %></p>
 
+  <div class="row">
+
+    <div class="col-4">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="no-border-top">Close</td>
+            <td class="no-border-top text-right font-weight-bold"><%= @quote.close %></td>
+          </tr>
+          <tr>
+            <td>Open</td>
+            <td class="text-right font-weight-bold"><%= @quote.open %></td>
+          </tr>
+          <tr>
+            <td>Day's Range</td>
+            <td class="text-right font-weight-bold"><%= @quote.low %> x <%= @quote.high %></td>
+          </tr>
+          <tr>
+            <td>52 Week Range</td>
+            <td class="text-right font-weight-bold"><%= @quote.week_52_low %> x <%= @quote.week_52_high %></td>
+          </tr>
+          <tr>
+            <td>Volume</td>
+            <td class="text-right font-weight-bold"><%= @quote.latest_volume %></td>
+          </tr>
+          <tr>
+            <td>Avg. Volume</td>
+            <td class="text-right font-weight-bold"><%= @quote.avg_total_volume %></td>
+          </tr>
+          <tr>
+            <td>Market Cap</td>
+            <td class="text-right font-weight-bold"><%= @quote.market_cap %></td>
+          </tr>
+          <tr>
+            <td>PE Ratio</td>
+            <td class="text-right font-weight-bold"><%= @quote.pe_ratio %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-1"></div>
+
+    <div class="col-7">
+      <div class="row">
+        <div class="col">
+          <h2 id="news-header">News</h2>
+        </div>
+      </div>
+
+      <% @news.each do |article| %>
+      <div class="mb-4">
+        <div class="row">
+          <div class="col">
+            <h5 class="mb-0"><%= article.headline %></h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-right font-italic">
+            <small><%= article.datetime.strftime("%b %-d, %Y %l:%M %P")%></small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="pl-1 pr-1"><%= article.summary %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+
+  </div>
 </div>

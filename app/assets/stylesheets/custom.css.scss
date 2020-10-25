@@ -15,7 +15,6 @@
 }
 
 // NAVIGATION
-// |-> User dropdown menu
 @media (max-width: 767.98px) {
   .user-dropdown-collapse {
     display: none;
@@ -32,30 +31,25 @@
 }
 
 // DEVISE USER PAGES (REGISTRATION, NEW, EDIT)
-// |-> Container
 .devise-user-container {
   margin-top: 50px;
 }
 
 // MY PORTFOLIO
-// |-> Search Area
 .search-area {
   margin-top: 50px;
 }
-// |-> Search Results
 .search-block {
   display: inline-block;
 }
 
 // MY CONNECTIONS
-// |-> Search Results
 .user-search-icon {
   height: 30px !important;
   width: 30px !important;
 }
 
 // TRACKING CONTAINER (used in My Portfolio and Connections)
-// |-> Container
 .tracking-container {
   margin: 50px 0;
 }
@@ -64,6 +58,16 @@
 }
 #stocks-table-refresh-icon {
   transform: scale(-1, 1);
+}
+
+// STOCK SHOW PAGE
+.no-border-top {
+  border-top: 0 !important;
+}
+#news-header {
+  border-bottom: 1px solid;
+  border-color: #dee2e6;
+  height: 48px;
 }
 
 // SHARED UTILITES

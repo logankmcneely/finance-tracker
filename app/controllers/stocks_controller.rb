@@ -4,6 +4,7 @@ class StocksController < ApplicationController
     stock = Stock.new_lookup(params[:id])
     if stock
       @quote = stock.get_quote
+      @news = stock.get_news
     else
       flash[:alert] = "Invalid stock"
       redirect_to my_portfolio_path
