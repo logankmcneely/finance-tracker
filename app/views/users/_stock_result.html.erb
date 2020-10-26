@@ -22,11 +22,11 @@
           <div class="col-6">
             <div class="row">
               <div class="col d-flex justify-content-end">
-                <%= link_to "View", stock_path(@quote.symbol), class:"btn btn-sm btn-info stock-search-buttons mr-2" %>
+                <%= link_to "View", stock_path(@quote.symbol), class:"btn btn-sm btn-info search-buttons mr-2" %>
                 <% if current_user.can_track_stock?(@quote.symbol) %>
-                  <%= link_to "Track", user_stocks_path(user: current_user, ticker: @quote.symbol), method: :post, class:"btn btn-sm btn-success stock-search-buttons" %>
+                  <%= link_to "Track", user_stocks_path(user: current_user, ticker: @quote.symbol), method: :post, class:"btn btn-sm btn-success search-buttons" %>
                 <% elsif current_user.stock_already_tracked?(@quote.symbol) %>
-                  <%= link_to "Untrack", user_stock_path(@stock_id), method: :delete, class: "btn btn-sm btn-danger stock-search-buttons",
+                  <%= link_to "Untrack", user_stock_path(@stock_id), method: :delete, class: "btn btn-sm btn-danger search-buttons",
                     data: { confirm: "Are you sure you want to stop tracking #{@quote.symbol}?" } %>
                 <% end %>
               </div>

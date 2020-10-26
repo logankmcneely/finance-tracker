@@ -1,8 +1,42 @@
-<div>
-  <%= render  "layouts/messages" %>
-</div>
+<%= render  "layouts/messages" %>
 
 <% if @results && @results.count > 0 %>
+  <div class="card shadow-sm bg-white rounded mt-2">
+    <ul class="list-group list-group-flush">
+      <% @results.each do |contact| %>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-6">
+              <div>
+                <span class="mr-2"><%= contact.full_name %></span>
+              </div>
+              <div>
+                <span class="mr-2"><small><%= contact.email %></small></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <%= link_to "View", contact, class:"btn btn-sm btn-info search-buttons mr-2" %>
+                  <% if current_user.not_connected_with?(contact.id) %>
+                    <%= link_to "Follow", connections_path(contact: contact), method: :post, class:"btn btn-sm btn-success search-buttons" %>
+                  <% else %>
+                    <%= link_to "Untrack", connection_path(contact), method: :delete, class: "btn btn-sm btn-danger search-buttons",
+                      data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%
+=begin%>
+ <% if @results && @results.count > 0 %>
   <div class="card shadow-sm bg-white rounded mt-2">
     <ul class="list-group list-group-flush">
       <% @results.each do |contact| %>
@@ -26,4 +60,6 @@
       <% end %>
     </ul>
   </div>
-<% end %>
+<% end %> 
+<%
+=end%>
