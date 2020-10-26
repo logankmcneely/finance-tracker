@@ -1,31 +1,35 @@
-<div class="container page-container">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-auto page-container">
 
-  <h1>My Connections</h1>
+      <h1>My Connections</h1>
 
-  <div class="search-area shadow-sm bg-white rounded">
-    <h3>Search Users</h3>
-    <%= form_tag search_user_path, remote: true, method: :get do %>
-      <div class="input-group">
-        <%= text_field_tag :user, params[:user], placeholder: "Search user", class: 'form-control form-control-lg'%>
-        <div class="input-group-append">
-          <%= button_tag type: :submit, class: 'btn btn-primary' do %>
-            <%= fa_icon 'search 2x' %>
-          <% end %>
-        </div>
+      <div class="search-area shadow-sm bg-white rounded">
+        <h3>Search Users</h3>
+        <%= form_tag search_user_path, remote: true, method: :get do %>
+          <div class="input-group">
+            <%= text_field_tag :user, params[:user], placeholder: "Search user", class: 'form-control form-control-lg'%>
+            <div class="input-group-append">
+              <%= button_tag type: :submit, class: 'btn btn-primary' do %>
+                <%= fa_icon 'search 2x' %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
 
-  <div id="user-results-container">
-    <%= render "users/user_result" %>
-  </div>
+      <div id="user-results-container">
+        <%= render "users/user_result" %>
+      </div>
 
-  <div class="tracking-container">
-    <% if !@user_contacts.empty? %>
-      <%= render "contacts_table" %>
-    <% else %>
-      <h5 class="font-weight-light font-italic text-center">You currently have no connections. Search and add contacts to build your connections.</h5>
-    <% end %>
-  </div>
+      <div class="tracking-container">
+        <% if !@user_contacts.empty? %>
+          <%= render "contacts_table" %>
+        <% else %>
+          <h5 class="font-weight-light font-italic text-center">You currently have no connections. Search and add contacts to build your connections.</h5>
+        <% end %>
+      </div>
 
+    </div>
+  </div>
 </div>

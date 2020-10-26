@@ -1,13 +1,18 @@
-<div class="container page-container">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-auto page-container">
 
-  <h1><%= @user.full_name %>'s Portfolio</h1>
+      <h1><%= @user.full_name %>'s Portfolio</h1>
 
-  <div class="tracking-container">
-    <% if !@user.stocks.empty? %>
-      <%= render "stocks_table", user: @user%>
-    <% else %>
-      <h5 class="font-weight-light font-italic text-center"><%= @user.full_name %> is currently not tracking any stocks.</h5>
-    <% end %>
+      <div class="tracking-container">
+        <% if !@user.stocks.empty? %>
+          <%= render "stocks_table", user: @user%>
+        <% else %>
+          <h5 class="font-weight-light font-italic text-center"><%= @user.full_name %> is currently not tracking any stocks.</h5>
+        <% end %>
+      </div>
+
+    </div>
   </div>
-
 </div>
+

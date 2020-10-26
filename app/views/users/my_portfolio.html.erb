@@ -1,31 +1,35 @@
-<div class="container page-container">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-auto page-container">
 
-  <h1>My Portfolio</h1>
-
-  <div class="search-area shadow-sm bg-white rounded">
-    <h3>Search Stocks</h3>
-    <%= form_tag search_stock_path, remote: true, method: :get do %>
-      <div class="input-group">
-        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", class: 'form-control form-control-lg'%>
-        <div class="input-group-append">
-          <%= button_tag type: :submit, class: 'btn btn-primary' do %>
-            <%= fa_icon 'search 2x' %>
-          <% end %>
+    <h1>My Portfolio</h1>
+    
+    <div class="search-area shadow-sm bg-white rounded">
+      <h3>Search Stocks</h3>
+      <%= form_tag search_stock_path, remote: true, method: :get do %>
+        <div class="input-group">
+          <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", class: 'form-control form-control-lg'%>
+          <div class="input-group-append">
+            <%= button_tag type: :submit, class: 'btn btn-primary' do %>
+              <%= fa_icon 'search 2x' %>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-  <div id="stock-results-container">
-    <%= render "users/stock_result" %>
-  </div>
+    <div id="stock-results-container">
+      <%= render "users/stock_result" %>
+    </div>
 
-  <div class="tracking-container">
-    <% if !current_user.stocks.empty? %>
-      <%= render "stocks_table", user: current_user %>
-    <% else %>
-      <h5 class="font-weight-light font-italic text-center">You are currently not tracking any stocks. Search and add stocks to build your portfolio.</h5>
-    <% end %>
-  </div>
+    <div class="tracking-container">
+      <% if !current_user.stocks.empty? %>
+        <%= render "stocks_table", user: current_user %>
+      <% else %>
+        <h5 class="font-weight-light font-italic text-center">You are currently not tracking any stocks. Search and add stocks to build your portfolio.</h5>
+      <% end %>
+    </div>
 
+    </div>
+  </div>
 </div>
