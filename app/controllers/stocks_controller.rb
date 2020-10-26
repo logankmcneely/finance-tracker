@@ -13,14 +13,14 @@ class StocksController < ApplicationController
 
   def search
     if params[:stock].present?
-      db_lookup = Stock.where(ticker: params[:stock]).first
-      if db_lookup
+      begin
+        db_lookup = Stock.new_lookup(params[:stock])
         @quote = db_lookup.get_quote
         @stock_id = db_lookup.id
         respond_to do |format|
           format.js { render partial: 'users/stock_result' }
         end
-      else
+      rescue
         respond_to do |format|
           flash.now[:alert] = "Please enter a valid symbol to search"
           format.js { render partial: 'users/stock_result' }
