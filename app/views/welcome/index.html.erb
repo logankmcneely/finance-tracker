@@ -1,4 +1,16 @@
-<h1>Welcome to the Finance Tracker App</h1>
-<p>Find me in views/welcome/index</p>
-
-<%= link_to  "Sign Out", destroy_user_session_path, method: :delete %>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+  <div class="masthead mb-auto"></div>
+  <h1 class="display-3 mb-4">Stock Tracker</h1>
+  <div class="card inner-container mx-auto">
+    <div class="card-body">
+      <p class="lead mt-2">This is a conceptualized stock tracking application built with Ruby on Rails 6 with authentication handled by Devise and styling built with Bootstrap 4.</p>
+      <hr class="my-4">
+      <p class="font-italic">Disclaimer: This application is built using IEX Cloud's API in their sandbox enviornment. In such enviornment, all data is scrambled and thus any financial figures you see in this application are inaccurate. In this enviornment, news articles and their links are scrambled to an uncoherent state. All data shown is strictly in a conceptualized state.</p>
+      <p class="lead">
+        <%= link_to  "Get Started", new_user_registration_path, class: "btn btn-lg btn-secondary" %>
+        <%= link_to  "Sign In", user_session_path, class: "btn btn-lg btn-secondary" %>
+      </p>
+    </div>
+  </div>
+  <div class="mastfoot mt-auto"></div>
+</div>
