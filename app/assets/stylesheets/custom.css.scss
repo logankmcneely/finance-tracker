@@ -105,6 +105,16 @@ body {
   transform: scale(-1, 1);
 }
 
+.untrack-stock {
+  font-size: 1.5em;
+  transition: 1s;
+  :hover, :focus {
+    color: #d9534f;
+    font-size: 1.51em;
+    text-shadow: 0 .05rem .1rem rgba(255, 255, 255, .25) !important
+  }
+}
+
 // STOCK SHOW PAGE
 .no-border-top {
   border-top: 0 !important;

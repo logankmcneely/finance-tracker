@@ -10,26 +10,28 @@
     </div>
   </div>
   
-
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Ticker</th>
-        <th scope="col">Company</th>
-        <th scope="col", colspan="3", class="text-right">Lastest</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="card shadow-sm bg-white rounded mt-2">
+    <ul class="list-group list-group-flush">
       <% user.stocks.each do |stock| %>
       <% quote = stock.get_quote %>
-        <tr>
-          <th scope="row" class="align-middle"><%= link_to stock.ticker, stock_path(quote.symbol) %></th>
-          <td class="align-middle"><%= quote.company_name %></td>
-          <td class="align-middle text-right"><%= number_to_currency(quote.latest_price) %></td>
-          <td class="align-middle text-right"><%= render  "shared/format_stock_delta", change: quote.change %></td>
-          <td class="align-middle text-right"><%= render  "shared/format_stock_delta_percent", change: quote.change, percent: quote.change_percent_s %></td>
-        </tr>
+        <li class="list-group-item contact" data-link="<%= stock_path(quote.symbol) %>">
+          <div class="row">
+            <div class="col">
+              <div>
+                <span><%= quote.company_name %> <small>(<%= quote.symbol %>)</small></span>
+              </div>
+              <div>
+                <span>
+                  <strong><%= number_with_precision(quote.latest_price, precision: 2) %></strong>
+                  <%= render "shared/format_stock_delta", change: quote.change %>
+                  <%= render  "shared/format_stock_delta_percent", change: quote.change, percent: quote.change_percent_s %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
       <% end %>
-    </tbody>
-  </table>
+    </ul>
+  </div>
 </div>
+
