@@ -1,12 +1,13 @@
 class StocksController < ApplicationController
 
   def show
-    stock = Stock.new_lookup(params[:id])
-    if stock
+    stock = Stock.new(ticker: params[:id])
+    begin
       @quote = stock.get_quote
       @news = stock.get_news
-    else
-      flash[:alert] = "Invalid stock"
+    # If API call fails, stock was invalid
+    rescue
+      flash[:alert] = "Invalid stock. Returned to portfolio view."
       redirect_to my_portfolio_path
     end
   end
@@ -26,7 +27,7 @@ class StocksController < ApplicationController
           format.js { render partial: 'users/stock_result' }
         end
 
-      # If API call returns an exception, the stock call was invalid
+      # If API call fails, the stock call was invalid
       rescue
         respond_to do |format|
           flash.now[:alert] = "Please enter a valid symbol to search"
