@@ -1,6 +1,17 @@
 <div class="container page-container">
 
-  <h1><%= @quote.company_name%><small> (<%= @quote.symbol %>)</small></h1>
+  <div class="row pl-3">
+    <h1 class="mr-2"><%= @quote.company_name %> <small>(<%= @quote.symbol %>)</small></h1>
+    <a class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split options-dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+    <div class="dropdown-menu">
+      <% if current_user.can_track_stock?(@quote.symbol) %>
+        <%= link_to "Track", user_stocks_path(user: current_user, ticker: @quote.symbol), method: :post, class: "dropdown-item" %>
+      <% else %>
+        <%= link_to "Untrack", user_stock_path(@stock_id), method: :delete, class: "dropdown-item",
+          data: { confirm: "Are you sure you want to stop tracking #{@quote.company_name} (#{@quote.symbol})?" } %>
+      <% end %>
+    </div>
+  </div>
 
   <h2>
     <%= number_with_precision(@quote.latest_price, precision: 2) %>
@@ -9,9 +20,13 @@
       <%= render  "shared/format_stock_delta_percent", change: @quote.change, percent: @quote.change_percent_s %>
     </small>
   </h2>
-  <p>As of <%= @quote.latest_source %> on <%= @quote.latest_time %></p>
+  <p class="mb-0">As of <%= @quote.latest_source %> on <%= @quote.latest_time %></p>
+  
+  <% if current_user.stock_already_tracked?(@quote.symbol) %>
+    <span class="badge badge-success">Tracking</span>
+  <% end %>
 
-  <div class="row mt-5">
+  <div class="row mt-3">
 
     <div class="col-md-8 col-lg-4">
       <table class="table">

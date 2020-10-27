@@ -5,7 +5,7 @@
       <div class="row">
         <h1 class="display-4 mr-2"><%= @user.full_name %>'s Profile</h1>
         <% if current_user != @user %>
-          <a class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" id="user-profile-dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+          <a class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split options-dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
           <div class="dropdown-menu">
             <% if current_user.not_connected_with?(@user.id) %>
               <%= link_to "Follow", connections_path(@user), method: :post, class: "dropdown-item" %>

@@ -1,7 +1,8 @@
+<% add_class = add_class.nil? ? "" : add_class %>
 <% if notice %>
-  <%= render "layouts/message", alert_type: "alert-success", alert_message: notice %>
+  <%= render "layouts/message", alert_type: "alert-success", alert_message: notice, add_class: add_class %>
 <% end %>
 <% if alert %>
-  <%= render "layouts/message", alert_type: "alert-danger", alert_message: alert %>
+  <%= render "layouts/message", alert_type: "alert-danger", alert_message: alert, add_class: add_class %>
 <% end %>
 <% flash.clear %>
