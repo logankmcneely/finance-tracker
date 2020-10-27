@@ -20,8 +20,8 @@ import "bootstrap"
 
 // My Connections -> Contact Table
 $(document).on('turbolinks:load', function () {
-  $("li[data-link]").on('click', function () {
-    window.location = $(this).data('link');
-  });
-});
-
+  $("li[data-link]").on('click', function (e) {
+    if (!$(e.target).is("a"))
+      window.location = $(this).data('link')  
+  })
+})
