@@ -17,3 +17,11 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import "bootstrap"
+
+// My Connections -> Contact Table
+$(document).on('turbolinks:load', function () {
+  $("li[data-link]").on('click', function () {
+    window.location = $(this).data('link');
+  });
+});
+

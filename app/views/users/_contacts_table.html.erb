@@ -1,33 +1,27 @@
 <h3>Contacts</h3>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Contact Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Tracked Stocks</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="card shadow-sm bg-white rounded mt-2">
+  <ul class="list-group list-group-flush">
     <% @user_contacts.each do |contact| %>
-      <tr>
-        <th scope="row", class="align-middle"><%= link_to contact.full_name, contact %></th>
-        <td class="font-italic align-middle"><%= contact.email %></td>
-        <td>
-          <% contact.stocks.each do |stock| %>
-            <%= link_to stock_path(stock.ticker), class:"no-text-decoration" do %>
-              <span class="badge badge-info"><%= stock.ticker %></span>
-            <% end %>
-          <%end %>
-        </td>
-        <td class="align-middle justify-content-center">
-          <%= link_to connection_path(contact), method: :delete,
-            data: { confirm: "Are you sure you want to stop following #{contact.full_name}?" } do%>
-            <%= fa_icon "times", class: "text-danger action-icon" %>
-          <% end %>
-        </td>
-      </tr>
+      <li class="list-group-item contact" data-link="<%= user_path(contact) %>">
+        <div class="row">
+          <div class="col-6">
+            <div>
+              <span class="mr-2"><%= contact.full_name %></span>
+            </div>
+            <div>
+              <span class="mr-2"><small><%= contact.email %></small></span>
+            </div>
+          </div>
+          <div class="col-6">
+            <% contact.stocks.each do |stock| %>
+              <%= link_to stock_path(stock.ticker), class:"no-text-decoration" do %>
+                <span class="badge badge-info contact-stock-badge"><%= stock.ticker %></span>
+              <% end %>
+            <%end %>
+          </div>
+        </div>
+      </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
