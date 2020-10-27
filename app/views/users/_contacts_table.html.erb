@@ -15,9 +15,7 @@
           </div>
           <div class="col-6">
             <% contact.stocks.each do |stock| %>
-              <%= link_to stock_path(stock.ticker), class:"no-text-decoration" do %>
-                <span class="badge badge-info contact-stock-badge"><%= stock.ticker %></span>
-              <% end %>
+              <%= link_to stock.ticker, stock_path(stock.ticker), class:"badge badge-primary contact-stock-badge" %>
             <%end %>
           </div>
         </div>
