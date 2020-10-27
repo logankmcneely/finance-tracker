@@ -13,13 +13,20 @@ class StocksController < ApplicationController
 
   def search
     if params[:stock].present?
+
       begin
-        db_lookup = Stock.new_lookup(params[:stock])
-        @quote = db_lookup.get_quote
-        @stock_id = db_lookup.id
+        # Check if exists in DB, else create new Stock object
+        db_lookup = Stock.check_db(params[:stock])
+        stock = db_lookup.nil? ? Stock.new(ticker: params[:stock]) : db_lookup
+
+        @quote = stock.get_quote
+        @stock_id = stock.id
+
         respond_to do |format|
           format.js { render partial: 'users/stock_result' }
         end
+
+      # If API call returns an exception, the stock call was invalid
       rescue
         respond_to do |format|
           flash.now[:alert] = "Please enter a valid symbol to search"

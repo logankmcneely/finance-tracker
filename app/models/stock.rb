@@ -4,14 +4,14 @@ class Stock < ApplicationRecord
 
   validates :ticker, presence: true
 
-  def self.new_lookup(ticker_symbol)
+  def self.new_lookup(symbol)
       new(
-        ticker: ticker_symbol,
+        ticker: symbol,
       )
   end
 
-  def self.check_db(ticker_symbol)
-    where(ticker: ticker_symbol).first
+  def self.check_db(symbol)
+    where(ticker: symbol).first
   end
 
   def get_quote
