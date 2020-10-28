@@ -36,16 +36,16 @@
       <table class="table">
         <tbody>
           <tr>
-            <td class="no-border-top">Close</td>
-            <td class="no-border-top text-right font-weight-bold"><%= number_with_precision(@quote.close, precision: 2) %></td>
+            <td class="no-border-top"> Previous Close</td>
+            <td class="no-border-top text-right font-weight-bold"><%= number_with_precision(@quote.previous_close, precision: 2) %></td>
           </tr>
           <tr>
             <td>Open</td>
-            <td class="text-right font-weight-bold"><%= number_with_precision(@quote.open, precision: 2) %></td>
+            <td class="text-right font-weight-bold">Unavailable</td>
           </tr>
           <tr>
             <td>Day's Range</td>
-            <td class="text-right font-weight-bold"><%= @quote.low %> - <%= @quote.high %></td>
+            <td class="text-right font-weight-bold">Unavailable</td>
           </tr>
           <tr>
             <td>52 Week Range</td>
@@ -53,7 +53,7 @@
           </tr>
           <tr>
             <td>Volume</td>
-            <td class="text-right font-weight-bold"><%= number_with_delimiter(@quote.latest_volume) %></td>
+            <td class="text-right font-weight-bold">Unavailable</td>
           </tr>
           <tr>
             <td>Avg. Volume</td>
