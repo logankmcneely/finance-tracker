@@ -25,3 +25,14 @@ $(document).on('turbolinks:load', function () {
       window.location = $(this).data('link')  
   })
 })
+
+// Close navbar collapse when clicking outside
+$(document).on('turbolinks:load', function () {
+  $(document).on('click', function (e) {
+      var clickover = $(e.target);
+      var _opened = $(".navbar-collapse").hasClass("navbar-collapse collapse show");
+      if (_opened === true && !clickover.hasClass("navbar-toggle")) {
+          $("button.navbar-toggler").trigger('click');
+      }
+  });
+});
