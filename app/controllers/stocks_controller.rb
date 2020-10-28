@@ -5,7 +5,8 @@ class StocksController < ApplicationController
     begin
       @quote = stock.get_quote
       @news = stock.get_news
-      @stock_id = Stock.check_db(params[:id]).id
+      db_lookup = Stock.check_db(params[:id])
+      @stock_id = db_lookup.nil? ? nil : db_lookup.id
     # If API call fails, stock was invalid
     rescue
       flash[:alert] = "Invalid stock. Returned to portfolio view."
