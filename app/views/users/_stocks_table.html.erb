@@ -1,7 +1,10 @@
 <div id="stock-tracker">
   <div class="row">
     <div class="col-10">
-      <h3>Tracked Stocks </h3>
+      <h3>Tracked Stocks 
+        <% if user.stocks.count > 0 %>
+          <small>(<%= user.stocks.count %>/10)</small></h3>
+        <% end %>
     </div>
     <div class="col-2 text-right">
       <%= link_to refresh_tracked_stocks_path(user_id: user.id), class: "no-text-decoration", remote: true, method: :get do%>
@@ -9,6 +12,8 @@
       <% end %>
     </div>
   </div>
+
+  
   
   <div class="card shadow-sm bg-white rounded mt-2">
     <ul class="list-group list-group-flush">
@@ -33,5 +38,13 @@
       <% end %>
     </ul>
   </div>
+
+  <% latest_time = user.stocks.first.get_quote.latest_time %>
+  <div class="row text-right">
+    <div class="col-12">
+      <small class="font-italic">As of <%= latest_time %> EST</small>
+    </div>
+  </div>
+
 </div>
 

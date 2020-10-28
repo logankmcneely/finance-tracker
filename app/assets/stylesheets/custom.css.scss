@@ -21,7 +21,8 @@ body {
 }
 
 .top-message {
-  margin-top: 56px;
+  display: fixed;
+  top: 56px;
 }
 
 // NAVIGATION
@@ -70,6 +71,7 @@ body {
 // DEVISE USER PAGES (REGISTRATION, NEW, EDIT)
 .devise-user-container {
   margin-top: 120px;
+  margin-bottom: 120px;
 }
 
 // MY PORTFOLIO
@@ -93,6 +95,12 @@ body {
   color:#0275d8 !important;
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .25) !important;
   background-color: #fff !important;
+}
+
+@media (max-width: 575.98px) {
+  #contact-table-stock-container {
+    display: none;
+  }
 }
 
 // TRACKING CONTAINER (used in My Portfolio and Connections)
