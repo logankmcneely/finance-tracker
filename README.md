@@ -7,9 +7,9 @@ Hosted at https://mcneely-finance-tracker.herokuapp.com/
 
 #### Built Using
 
-  *[Ruby on Rails 6](https://rubyonrails.org/ "Ruby on Rail's Homepage")  
-  *[Authentication by Devise](https://github.com/heartcombo/devise "Devise Gem Github Page")  
-  *[Styling with Bootstrap 4](https://getbootstrap.com/ "Bootstrap's Homepage")  
-  *[IEX Cloud's Stock API](https://iexcloud.io/ "IEX Cloud's Homepage")  
-  *[IEX Ruby Client](https://github.com/dblock/iex-ruby-client "IEX Ruby Client Github Page")  
+  * [Ruby on Rails 6](https://rubyonrails.org/ "Ruby on Rail's Homepage")  
+  * [Authentication by Devise](https://github.com/heartcombo/devise "Devise Gem Github Page")  
+  * [Styling with Bootstrap 4](https://getbootstrap.com/ "Bootstrap's Homepage")  
+  * [IEX Cloud's Stock API](https://iexcloud.io/ "IEX Cloud's Homepage")  
+  * [IEX Ruby Client](https://github.com/dblock/iex-ruby-client "IEX Ruby Client Github Page")  
   
