@@ -1,4 +1,4 @@
--Correct inconsisten stock show results (Invalid stock??)
 -Rename stock ticker to symbol
 -Turn off auto focus on sign up/edit/sign in
--Turn off weird text shadow on sign up/edit/sign in
+-Turn off weird text shadow on sign up/edit/sign in/search boxes
+-Top message smaller when in larger screen width
