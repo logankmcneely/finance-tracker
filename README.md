@@ -1,5 +1,4 @@
 ## Stock Tracking Application
----  
  
 Hosted at https://mcneely-finance-tracker.herokuapp.com/
 > Please be aware that the application may be in Heroku's sleep mode and initial loading of the page may take a moment.  
