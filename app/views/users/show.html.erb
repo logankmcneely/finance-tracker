@@ -12,7 +12,7 @@
               <a class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split options-dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
               <div class="dropdown-menu dropdown-menu-right">
                 <% if current_user.not_connected_with?(@user.id) %>
-                  <%= link_to "Follow", connections_path(@user), method: :post, class: "dropdown-item" %>
+                  <%= link_to "Follow", connections_path(contact: @user.id), method: :post, class: "dropdown-item" %>
                 <% else %>
                   <%= link_to "Unfollow", connection_path(@user), method: :delete, class: "dropdown-item",
                     data: { confirm: "Are you sure you want to stop following #{@user.full_name}" } %>
