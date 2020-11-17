@@ -15,3 +15,6 @@ Hosted at https://mcneely-finance-tracker.herokuapp.com/
   * [Font Awesome](https://fontawesome.com/ "Font Awesome's Homepage")  
   * [Font Awesome Rails Gem](https://github.com/bokmann/font-awesome-rails "Font Awesome Rails Gem Github Page")  
   
+  
+###### Disclaimer
+> This application is built using IEX Cloud's API in their sandbox enviornment. In such enviornment, all data is scrambled and thus any financial figures you see in this application are inaccurate. In this enviornment, news articles and their links are scrambled to an incoherent state. All data shown is strictly in a conceptualized state.
