@@ -3,7 +3,12 @@
 Hosted at https://mcneely-stock-tracker.herokuapp.com/
 > Please be aware that the application may be in Heroku's sleep mode and initial loading of the page may take a moment.  
 
+#### Search Stocks and Add to Your Portfolio to Track. Create Connections to See What They are Tracking
+![Search Photos by Popular, Latest, or Random](/images/img4.png "Search Photos by Popular, Latest, or Random") ![Search by Name](/images/img3.png "Search Photos by Name")  
 
+#### Immersive Full-Screen Viewing (tap on screen to toggle menu) and Scroll Through Colors on Photo View
+![Immersive Full-Screen Viewing](/images/img3.png "Immersive Full-Screen Viewing") ![Scroll Through Colors on Photo View](/images/colorscroll.gif "Scroll Through Colors on Photo View")
+  
 #### Built Using
 
   * [Ruby on Rails 6](https://rubyonrails.org/ "Ruby on Rail's Homepage")  
