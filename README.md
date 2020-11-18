@@ -5,7 +5,7 @@ This is a conceptualized Stock Tracking Application hosted at https://mcneely-st
 
 &nbsp;  
   
-#### Search Stocks and Add to Your Portfolio to Track. Search Users to Create Connections and See What They are Tracking
+#### Search stocks and build a portfolio to track. Build connections to see what they are tracking.
 ![Search Stocks and Add to Your Portfolio to Track](/images/img4.png "Search Stocks and Add to Your Portfolio to Track") ![Search Users to Create Connections and See What They are Tracking](/images/img3.png "Search Users to Create Connections and See What They are Tracking")  
 
 
