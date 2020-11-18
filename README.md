@@ -2,6 +2,8 @@
 
 This is a conceptualized Stock Tracking Application hosted at https://mcneely-stock-tracker.herokuapp.com/
 > Please be aware that the application may be in Heroku's sleep mode and initial loading of the page may take a moment.  
+
+&nbsp;  
   
 #### Search Stocks and Add to Your Portfolio to Track. Search Users to Create Connections and See What They are Tracking
 ![Search Stocks and Add to Your Portfolio to Track](/images/img4.png "Search Stocks and Add to Your Portfolio to Track") ![Search Users to Create Connections and See What They are Tracking](/images/img3.png "Search Users to Create Connections and See What They are Tracking")  
