@@ -3,14 +3,12 @@
 This is a conceptualized Stock Tracking Application hosted at https://mcneely-stock-tracker.herokuapp.com/
 > Please be aware that the application may be in Heroku's sleep mode and initial loading of the page may take a moment.  
   
-&nbsp;  
-
 #### Search Stocks and Add to Your Portfolio to Track. Search Users to Create Connections and See What They are Tracking
 ![Search Stocks and Add to Your Portfolio to Track](/images/img4.png "Search Stocks and Add to Your Portfolio to Track") ![Search Users to Create Connections and See What They are Tracking](/images/img3.png "Search Users to Create Connections and See What They are Tracking")  
 
 
 #### Stock Page Shows Latest Quote and News
-> Note: IEX Cloud's Sandbox API blocks some quote calls and renders the news articles to an incoherent state. This is strictly a conceptualized application.
+> Note: IEX Cloud's Sandbox API blocks some quote calls and renders the news articles to an incoherent state. This is strictly a conceptualized application.  
 ![Stock Page Shows Latest Quote and News](/images/img2.png "Stock Page Shows Latest Quote and News")
   
 #### Built Using
