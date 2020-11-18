@@ -17,3 +17,4 @@ Hosted at https://mcneely-stock-tracker.herokuapp.com/
   
 ###### Disclaimer
 > This application is built using IEX Cloud's API in their sandbox enviornment. In such enviornment, all data is scrambled and thus any financial figures you see in this application are inaccurate. In this enviornment, news articles and their links are scrambled to an incoherent state. All data shown is strictly in a conceptualized state.
+> Check out [IEX Cloud's Sandbox Enviornment](https://intercom.help/iexcloud/en/articles/2915433-testing-with-the-iex-cloud-sandbox "IEX Cloud's Sandbox Enviornment") for more details.
