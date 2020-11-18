@@ -6,13 +6,13 @@ This is a conceptualized Stock Tracking Application hosted at https://mcneely-st
 &nbsp;  
   
 #### Search stocks and build a portfolio to track. Build connections to see what they are tracking.
-![Search Stocks and Add to Your Portfolio to Track](/images/img4.png "Search Stocks and Add to Your Portfolio to Track") ![Search Users to Create Connections and See What They are Tracking](/images/img3.png "Search Users to Create Connections and See What They are Tracking")  
+![Search Stocks and Add to Your Portfolio to Track](/images/img3.png "Search Stocks and Add to Your Portfolio to Track") ![Search Users to Create Connections and See What They are Tracking](/images/img2.png "Search Users to Create Connections and See What They are Tracking")  
 
 
 #### Stock Page Shows Latest Quote and News
 > Note: IEX Cloud's Sandbox API blocks some quote calls and renders the news articles to an incoherent state. This is strictly a conceptualized application.  
   
-![Stock Page Shows Latest Quote and News](/images/img2.png "Stock Page Shows Latest Quote and News")  
+![Stock Page Shows Latest Quote and News](/images/img1.png "Stock Page Shows Latest Quote and News")  
   
 #### Built Using
 
