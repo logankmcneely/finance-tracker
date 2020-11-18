@@ -9,7 +9,8 @@ This is a conceptualized Stock Tracking Application hosted at https://mcneely-st
 
 #### Stock Page Shows Latest Quote and News
 > Note: IEX Cloud's Sandbox API blocks some quote calls and renders the news articles to an incoherent state. This is strictly a conceptualized application.  
-![Stock Page Shows Latest Quote and News](/images/img2.png "Stock Page Shows Latest Quote and News")
+  
+![Stock Page Shows Latest Quote and News](/images/img2.png "Stock Page Shows Latest Quote and News")  
   
 #### Built Using
 
